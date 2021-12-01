@@ -1,10 +1,11 @@
 Deployment using Azure CLI
 ==========================
 
-Requirements:
+## Requirements
 
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)
 
+## Usage
 
 TODO: Write this as a shell script / command script.
 
@@ -22,3 +23,10 @@ az dt show --dt-name <your-Azure-Digital-Twins-instance>.
 az iot hub create --name <name-for-your-IoT-hub> --resource-group <your-resource-group> --sku S1
 ```
 
+## Cleanup
+
+Requires PowerShell:
+
+``` pwsh
+../powershell/remove-infrastructure.ps1
+```
