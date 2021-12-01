@@ -1,14 +1,14 @@
-Deployment using Azure PowerShell
-=================================
+Deployment using Azure CLI
+==========================
 
 Requirements:
 
-* Azure CLI
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)
 
 
 TODO: Write this as a shell script / command script.
 
-```sh
+``` sh
 az login
 az account set --subscription "<your-Azure-subscription-ID>"
 ```
