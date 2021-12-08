@@ -1,8 +1,16 @@
 #!/usr/bin/env pwsh
+
+<# .SYNOPSIS
+  Deploy the Azure infrastructure. #>
 [CmdletBinding()]
 param (
+    ## Name of the application, workload, or service that the resource is a part of.
     [string]$AppName = 'codefirsttwins',
-    [string]$Environment = 'demo',
+    ## Identifier for the organisation or subscription to make global names unique.
+    [string]$OrgId = "0x$((Get-AzContext).Subscription.Id.Substring(0,4))",
+    ## Deployment environment, e.g. Prod, Dev, QA, Stage, Test.
+    [string]$Environment = 'Dev',
+    ## The Azure region where the resource is deployed.
     [string]$Location = 'australiaeast'
 )
 
@@ -31,13 +39,11 @@ Write-Verbose "Using context subscription ID $SubscriptionId"
 
 # Following standard naming conventions from Azure Cloud Adoption Framework
 # https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
+# With an additional organisation or subscription identifier (after app name) in global names to make them unique 
 
-# Include an subscription or organisation identifier (after app name) in global names to make them unique 
-$OrgId = "x$($SubscriptionId.Substring(0,4))"
-
-$ResourceGroupName = "rg-$AppName-$Environment-001"
-$DigitalTwinsName = "dt-$AppName-$OrgId-$Environment"
-$IotHubName = "iot-$AppName-$OrgId-$Environment"
+$ResourceGroupName = "rg-$AppName-$Environment-001".ToLowerInvariant()
+$DigitalTwinsName = "dt-$AppName-$OrgId-$Environment".ToLowerInvariant()
+$IotHubName = "iot-$AppName-$OrgId-$Environment".ToLowerInvariant()
 
 # Following standard tagging conventions from  Azure Cloud Adoption Framework
 # https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging

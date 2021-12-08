@@ -2,7 +2,7 @@
 param (
     [string]$SubscriptionId = $null,
     [string]$AppName = 'codefirsttwins',
-    [string]$Environment = 'demo'
+    [string]$Environment = 'Dev'
 )
 
 # Pre-requisites:
@@ -22,6 +22,6 @@ $ErrorActionPreference="Stop"
 $SubscriptionId = (Get-AzContext).Subscription.Id
 Write-Verbose "Removing from context subscription ID $SubscriptionId"
 
-$ResourceGroupName = "rg-$AppName-$Environment-001"
+$ResourceGroupName = "rg-$AppName-$Environment-001".ToLowerInvariant()
 
 Remove-AzResourceGroup -Name $ResourceGroupName
