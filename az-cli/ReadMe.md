@@ -7,26 +7,23 @@ Deployment using Azure CLI
 
 ## Usage
 
-TODO: Write this as a shell script / command script.
+* Ensure the IoT extension is installed.
+* Connect (login) to Azure.
+* Select the subscription you want to use.
+* Run the script
 
 ``` sh
+az extension add --name azure-iot
+
 az login
-az account set --subscription "<your-Azure-subscription-ID>"
-```
 
+az account set --subscription <subscription id>
 
-```
-az group create --location <region> --name <name-for-your-resource-group>
-az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
-az dt show --dt-name <your-Azure-Digital-Twins-instance>.
-
-az iot hub create --name <name-for-your-IoT-hub> --resource-group <your-resource-group> --sku S1
+sh deploy-infrastructure.sh
 ```
 
 ## Cleanup
 
-Requires PowerShell:
-
-``` pwsh
-../powershell/remove-infrastructure.ps1
+``` sh
+az group delete --resource-group rg-codefirsttwins-dev-001
 ```

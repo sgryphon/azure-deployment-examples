@@ -26,7 +26,7 @@ az deployment sub create -l australiaeast -f main.bicep
 
 ## Cleanup
 
-``` pwsh
+``` sh
 az group delete --resource-group rg-codefirsttwins-dev-001
 ```
 
