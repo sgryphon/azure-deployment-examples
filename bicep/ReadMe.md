@@ -24,6 +24,12 @@ az account set --subscription <subscription id>
 az deployment sub create -l australiaeast -f main.bicep
 ```
 
+## Cleanup
+
+``` pwsh
+az group delete --resource-group rg-codefirsttwins-dev-001
+```
+
 ## Alternative using Azure PowerShell
 
 You can also use Azure PowerShell to deploy a Bicep template, however you need to install the Bicep CLI. For more details see https://docs.microsoft.com/en-gb/azure/azure-resource-manager/bicep/install#azure-powershell
@@ -40,8 +46,3 @@ Set-AzContext -SubscriptionId $SubscriptionId
 New-AzDeployment -Location 'australiaeast' -TemplateFile 'main.bicep'
 ```
 
-## Cleanup
-
-``` pwsh
-az group delete --resource-group rg-codefirsttwins-demo-001
-```

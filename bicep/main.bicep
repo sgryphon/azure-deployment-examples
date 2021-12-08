@@ -6,19 +6,19 @@
 targetScope = 'subscription'
 
 param appName string = 'codefirsttwins'
-param environment string = 'demo'
 param orgId string = '0x${substring(subscription().subscriptionId, 0, 4)}'
+param environment string = 'Dev'
 
 var tags = {
-  ApplicationName: appName
   WorkloadName: 'codefirsttwins'
   DataClassification: 'Non-business'
   Criticality: 'Low'
   BusinessUnit: 'Demo'
+  ApplicationName: appName
   Env: environment
 }
 var location = deployment().location
-var rgName = 'rg-${appName}-${environment}-001'
+var rgName = toLower('rg-${appName}-${environment}-001')
 
 resource rgDemoDeployment 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgName

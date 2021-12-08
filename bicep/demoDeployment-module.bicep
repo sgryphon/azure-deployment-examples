@@ -6,8 +6,8 @@ param environment string
 param tags object
 
 var location = resourceGroup().location
-var iotHubName = 'iot-${appName}-${orgId}-${environment}'
-var digitalTwinsName = 'dt-${appName}-${orgId}-${environment}'
+var iotHubName = toLower('iot-${appName}-${orgId}-${environment}')
+var digitalTwinsName = toLower('dt-${appName}-${orgId}-${environment}')
 
 resource iot_appName_orgId_environment 'Microsoft.Devices/IotHubs@2021-07-01' = {
   name: iotHubName
