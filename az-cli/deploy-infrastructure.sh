@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Requirements:
+# * Azure CLI, https://docs.microsoft.com/en-us/cli/azure/
+# * BASH
+# To run:
+#  az extension add --name azure-iot
+#  az login
+#  az account set --subscription <subscription id>
+#  sh deploy-infrastructure.sh
+
 subscription_id=$(az account show --query id --output tsv)
 echo "Using context subscription ID $subscription_id"
 

@@ -3,7 +3,7 @@ Deploy using a Bicep template
 
 ## Requirements
 
-* Azure CLI
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)
 * [Azure Bicep plug-in](https://github.com/Azure/bicep)
 
 ## Usage
